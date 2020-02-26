@@ -192,7 +192,7 @@ public static void method7() throws InterruptedException //Valid Username and Pa
 			}
 		
 	}
-@Test(priority = 1)
+@Test(priority = 6)
 	public static void Dashboard1() throws InterruptedException 
 	{
 		Reporter.log("==============Aws Cloud Details ===============", true);
