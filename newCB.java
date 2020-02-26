@@ -252,3 +252,11 @@ public static void method7() throws InterruptedException //Valid Username and Pa
 		System.out.println("Add TCO wedget on dashboard");
 		Reporter.log("==============Add weidget of TCO on dashboard===============", true);
 	}
+@AfterTest
+	public static void end() throws InterruptedException {
+		Thread.sleep(8000);
+		driver.close();
+		driver.quit();
+		
+	}
+}
