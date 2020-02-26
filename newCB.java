@@ -22,3 +22,36 @@ public static void method1()
 		driver.manage().window().maximize();
 		driver.get("http://192.168.1.34:3000/");	
 	}
+@Test(priority = 0)
+public static void method2() throws InterruptedException//Invalid User Name
+	{
+		Reporter.log("=============login with Invalid Usrname and Password==============", true);
+		driver.findElement(By.xpath("//i")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(By.id("user_name")).clear();
+		driver.findElement(By.id("user_name")).sendKeys("Click2cloud-abcd");
+		driver.findElement(By.id("user_password")).clear();
+		driver.findElement(By.id("user_password")).sendKeys("Click2cloud");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  	driver.findElement(By.id("login")).click();
+		Thread.sleep(2000);
+		
+		String url = driver.getCurrentUrl();
+		if(! url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/"))
+			{
+				Error_Message =driver.findElement(By.xpath("//*[@id='flash_msg_div']")).getText();
+			}
+		if(url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/"))
+			{
+				System.out.println("User login Succesful - Passed");
+			}
+		else if((! url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/")) && (Error_Message.contains("Sorry, the username or password you entered is incorrect.")))
+			{
+				System.out.println("User login Unsuccesful and showing correct error message - Passed");
+			}
+		else
+			{
+				System.out.println("User login unsuccesful and not showing correct error message - Failed");
+			}
+		Thread.sleep(2000);
+	}
