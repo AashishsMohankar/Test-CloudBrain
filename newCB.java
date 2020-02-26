@@ -192,4 +192,41 @@ public static void method7() throws InterruptedException //Valid Username and Pa
 			}
 		
 	}
-}
+@Test(priority = 1)
+	public static void Dashboard1() throws InterruptedException 
+	{
+		Reporter.log("==============Aws Cloud Details ===============", true);
+		driver.findElement(By.xpath("//*[@id='awsCount']")).click();
+		System.out.println("Click on AWS cloud");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//*[@id='heading0']/h4/a")).click();
+		System.out.println("Click on AWS account to see details");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//*[@id='heading0']/h4/a")).click();
+		System.out.println("Click on AWS account to close details");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//*[@id='popheader']/h4/button")).click();
+		System.out.println("Close AWS cloud details tab");
+		Thread.sleep(2000);
+		
+		Reporter.log("==============GCP Cloud Details ===============", true);	
+		driver.findElement(By.xpath("//*[@id='gcpCount']")).click();
+		System.out.println("Click on GCP account count");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id='heading0']/h4/a")).click();
+		System.out.println("Click on GCP cloud account details");
+		
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//*[@id='heading0']/h4/a")).click();
+		System.out.println("Click on AWS account to close details");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//*[@id='popheader']/h4/button")).click();
+		System.out.println("Close AWS cloud details tab");
+		
+	}
