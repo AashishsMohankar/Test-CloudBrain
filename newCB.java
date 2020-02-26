@@ -123,3 +123,37 @@ public static void method5() throws InterruptedException//blank Password
 				System.out.println("User login unsuccesful and not showing correct error message - Failed");
 			}
 	}
+@Test(priority = 4)
+public static void method6() throws InterruptedException//blank User_name and Password
+	{
+		Reporter.log("===========login with blank Usrname and blank Password============", true);
+		driver.findElement(By.xpath("//i")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//i")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(By.id("user_name")).clear();
+		driver.findElement(By.id("user_name")).sendKeys("");
+		driver.findElement(By.id("user_password")).clear();
+		driver.findElement(By.id("user_password")).sendKeys("");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElement(By.id("login")).click();
+		Thread.sleep(2000);
+		
+		String url = driver.getCurrentUrl();
+		if(! url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/"))
+			{
+				Error_Message =driver.findElement(By.xpath("//*[@id='flash_msg_div']")).getText();
+			}
+		if(url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/"))
+			{
+				System.out.println("User login Succesful - Passed");
+			}
+		else if((! url.equals("https://click2cloud.thecloudsbrain.com/dashboard/show#/")) && (Error_Message.contains("Error: Name is required")))
+			{
+				System.out.println("User login Unsuccesful and showing correct error message - Passed");
+			}
+		else
+			{
+				System.out.println("User login unsuccesful and not showing correct error message - Failed");
+			}
+	}
