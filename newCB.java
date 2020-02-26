@@ -230,3 +230,25 @@ public static void method7() throws InterruptedException //Valid Username and Pa
 		System.out.println("Close AWS cloud details tab");
 		
 	}
+@Test(priority = 7)
+	public static void Dashboard2() throws InterruptedException 
+	{
+		Reporter.log("==============Remove weidget of TCO===============", true);
+		driver.findElement(By.xpath("//*[@id='all_tco_graph']/div[1]/div[1]/a")).click();
+		System.out.println("Click on wefget option");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id='tcodrop1']/a[1]")).click();
+		System.out.println("Remove TCO Wedget from dashboard");
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,-1000)");
+		
+		driver.findElement(By.xpath("//*[@id='drop1']")).click();
+		System.out.println("Click on Add wedget button");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id='drop1']/ul/li[2]")).click();
+		System.out.println("Add TCO wedget on dashboard");
+		Reporter.log("==============Add weidget of TCO on dashboard===============", true);
+	}
